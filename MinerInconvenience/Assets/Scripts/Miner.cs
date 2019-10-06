@@ -62,6 +62,12 @@ public class Miner : MonoBehaviour
     /// </summary>
     public void Walk()
     {
+        if (!IsGrounded() && inputVector.x == 0)
+        {
+            if (!didChangeDirection) inputVector.x = 1 * speed;
+            else inputVector.x = -1 * speed;
+        }
+
         rigidBody.velocity = new Vector2(inputVector.x, rigidBody.velocity.y);
     }
 
