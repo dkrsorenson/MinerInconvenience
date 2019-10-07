@@ -12,6 +12,7 @@ public class Miner : MonoBehaviour
     public float speed = 5f;
     private Vector2 inputVector;
     private bool didChangeDirection = false;
+    private bool isWalking = false;
 
     // Start is called before the first frame update
     public void Start()
@@ -48,7 +49,8 @@ public class Miner : MonoBehaviour
     bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.CircleCast(transform.position,
-            0.1f, Vector2.down, 0.5f, groundLayer);
+            0.1f, Vector2.down, 0.7f, groundLayer);
+
         if (hit.collider != null)
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
@@ -62,7 +64,17 @@ public class Miner : MonoBehaviour
     /// </summary>
     public void Walk()
     {
-        if (!IsGrounded() && inputVector.x == 0)
+        bool grounded = IsGrounded();
+
+        // If they are grounded, keep track of if they are moving
+        if (grounded)
+        {
+            if (inputVector.x == 0) isWalking = false;
+            else isWalking = true;
+        }
+
+        // If they are jumping, keep moving them forward if they were walking before but let go of the key
+        if (!grounded && isWalking && inputVector.x == 0)
         {
             if (!didChangeDirection) inputVector.x = 1 * speed;
             else inputVector.x = -1 * speed;
