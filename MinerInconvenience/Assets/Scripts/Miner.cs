@@ -26,20 +26,24 @@ public class Miner : MonoBehaviour
     public void Update()
     {
         // Get the direction of input on the horizontal axis
-        inputVector = new Vector2(Input.GetAxisRaw("Horizontal") * speed, 0);
+        inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
         FlipSprite();
     }
 
     public void FixedUpdate()
     {
-        Walk();
 
         //if it is grounded then apply a jump force
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             rigidBody.AddForce(Vector2.up * 12, ForceMode2D.Impulse);
         }
+
+        Walk();
+
+        FlipSprite();
+
     }
 
     /// <summary>
@@ -60,9 +64,26 @@ public class Miner : MonoBehaviour
     }
 
     /// <summary>
-    /// Moves the player in the direction of input
+    /// Walk
     /// </summary>
     public void Walk()
+    {
+        if (inputVector.x * rigidBody.velocity.x < 4)
+        {
+            rigidBody.AddForce(Vector2.right * inputVector.x * 280);
+        }
+
+        // add some velocity
+        if (Mathf.Abs(rigidBody.velocity.x) > 4)
+        {
+            rigidBody.velocity = new Vector2(Mathf.Sign(rigidBody.velocity.x) * 3, rigidBody.velocity.y);
+        }
+    }
+
+    /// <summary>
+    /// Moves the player in the direction of input
+    /// </summary>
+    public void WalkALt()
     {
         bool grounded = IsGrounded();
 
@@ -88,15 +109,7 @@ public class Miner : MonoBehaviour
     /// </summary>
     public void FlipSprite()
     {
-        if(inputVector.x > 0 && didChangeDirection)
-        {
-            didChangeDirection = false;
-        }
-        else if (inputVector.x < 0 && !didChangeDirection)
-        {
-            didChangeDirection = true;
-        }
-
-        playerSpriteRenderer.flipX = didChangeDirection;
+        if (rigidBody.velocity.x < 0) playerSpriteRenderer.flipX = true;
+        else playerSpriteRenderer.flipX = false;
     }
 }
