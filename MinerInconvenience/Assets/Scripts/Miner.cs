@@ -13,6 +13,7 @@ public class Miner : MonoBehaviour
     private Vector2 inputVector;
     private bool didChangeDirection = false;
     private bool isWalking = false;
+    private bool movedInAir = false;
 
     // Start is called before the first frame update
     public void Start()
@@ -26,6 +27,7 @@ public class Miner : MonoBehaviour
     public void Update()
     {
         // Get the direction of input on the horizontal axis
+        //inputVector = new Vector2(Input.GetAxisRaw("Horizontal") * speed, 0);
         inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
 
         FlipSprite();
@@ -33,17 +35,15 @@ public class Miner : MonoBehaviour
 
     public void FixedUpdate()
     {
+        //WalkALt();
 
         //if it is grounded then apply a jump force
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            rigidBody.AddForce(Vector2.up * 12, ForceMode2D.Impulse);
+            rigidBody.AddForce(Vector2.up * 11, ForceMode2D.Impulse);
         }
 
         Walk();
-
-        FlipSprite();
-
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ public class Miner : MonoBehaviour
         // add some velocity
         if (Mathf.Abs(rigidBody.velocity.x) > 4)
         {
-            rigidBody.velocity = new Vector2(Mathf.Sign(rigidBody.velocity.x) * 3, rigidBody.velocity.y);
+            rigidBody.velocity = new Vector2(Mathf.Sign(rigidBody.velocity.x) * 4, rigidBody.velocity.y);
         }
     }
 
@@ -92,13 +92,27 @@ public class Miner : MonoBehaviour
         {
             if (inputVector.x == 0) isWalking = false;
             else isWalking = true;
+
+            movedInAir = false;
+        }
+        else // Keep track of if they move while in the air
+        {
+            if ((inputVector.x > 0 || inputVector.x < 0) && !movedInAir) movedInAir = true;
         }
 
-        // If they are jumping, keep moving them forward if they were walking before but let go of the key
-        if (!grounded && isWalking && inputVector.x == 0)
+        // Keep moving the player forward when they jump
+        if(!grounded && inputVector.x == 0)
         {
-            if (!didChangeDirection) inputVector.x = 1 * speed;
-            else inputVector.x = -1 * speed;
+            if (isWalking || movedInAir)
+            {
+                if (!didChangeDirection) inputVector.x = 0.5f * speed;
+                else inputVector.x = -0.5f * speed;
+            }
+        }
+        else if(!grounded && inputVector.x != 0)
+        {
+            if (!didChangeDirection) inputVector.x = 0.75f * speed;
+            else inputVector.x = -0.75f * speed;
         }
 
         rigidBody.velocity = new Vector2(inputVector.x, rigidBody.velocity.y);
@@ -109,7 +123,9 @@ public class Miner : MonoBehaviour
     /// </summary>
     public void FlipSprite()
     {
-        if (rigidBody.velocity.x < 0) playerSpriteRenderer.flipX = true;
-        else playerSpriteRenderer.flipX = false;
+        if (inputVector.x > 0) didChangeDirection = false;
+        else if (inputVector.x < 0) didChangeDirection = true;
+
+        playerSpriteRenderer.flipX = didChangeDirection;
     }
 }
