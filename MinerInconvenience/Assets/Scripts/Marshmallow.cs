@@ -8,6 +8,7 @@ public class Marshmallow : MonoBehaviour
     public float jumpCooldown;
     public bool onGround;
     public LayerMask groundLayer;
+    [SerializeField] int health;
     Rigidbody2D body;
     Animator anim;
     float jumpTimer;
@@ -17,6 +18,12 @@ public class Marshmallow : MonoBehaviour
         //Cache references to components
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        health = 100;
+    }
+
+    private void Update()
+    {
+
     }
 
     private void FixedUpdate()

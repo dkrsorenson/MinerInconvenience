@@ -8,11 +8,15 @@ public class Miner : MonoBehaviour
     private Animator animator;
     private SpriteRenderer playerSpriteRenderer;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask enemyLayer;
 
-    public float speed = 5f;
+    [SerializeField]float speed = 5f;
+    [SerializeField] float moveForce = 300f;
     private Vector2 inputVector;
     private bool didChangeDirection = false;
     private bool isWalking = false;
+    int marshmallowCounter;
+    int collectibleCounter;
 
     // Start is called before the first frame update
     public void Start()
@@ -20,6 +24,9 @@ public class Miner : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        marshmallowCounter = 0;
+        collectibleCounter = 0;
     }
 
     // Update is called once per frame
@@ -27,6 +34,13 @@ public class Miner : MonoBehaviour
     {
         // Get the direction of input on the horizontal axis
         inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            Attack();
+        }
+
+
 
         FlipSprite();
     }
@@ -68,15 +82,15 @@ public class Miner : MonoBehaviour
     /// </summary>
     public void Walk()
     {
-        if (inputVector.x * rigidBody.velocity.x < 4)
+        if (inputVector.x * rigidBody.velocity.x < speed)
         {
-            rigidBody.AddForce(Vector2.right * inputVector.x * 280);
+            rigidBody.AddForce(Vector2.right * inputVector.x * moveForce);
         }
 
         // add some velocity
-        if (Mathf.Abs(rigidBody.velocity.x) > 4)
+        if (Mathf.Abs(rigidBody.velocity.x) > speed)
         {
-            rigidBody.velocity = new Vector2(Mathf.Sign(rigidBody.velocity.x) * 3, rigidBody.velocity.y);
+            rigidBody.velocity = new Vector2(Mathf.Sign(rigidBody.velocity.x) * speed, rigidBody.velocity.y);
         }
     }
 
@@ -104,12 +118,36 @@ public class Miner : MonoBehaviour
         rigidBody.velocity = new Vector2(inputVector.x, rigidBody.velocity.y);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "HealthCollectible")
+        {
+            Destroy(collision.gameObject);
+            collectibleCounter++;
+        }
+    }
+
+    /// <summary>
+    /// Attacking the enemies
+    /// </summary>
+    public void Attack()
+    {
+        float rayCastSign = playerSpriteRenderer.flipX ? -1.0f : 1.0f;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * rayCastSign, 10f,enemyLayer);
+
+        if(hit.collider!=null)
+        {
+            Debug.Log("hit");
+        }
+    }
+
     /// <summary>
     /// Flips the sprite to face the direction of player movement
     /// </summary>
     public void FlipSprite()
     {
         if (rigidBody.velocity.x < 0) playerSpriteRenderer.flipX = true;
-        else playerSpriteRenderer.flipX = false;
+        else if(rigidBody.velocity.x > 0) playerSpriteRenderer.flipX = false;
     }
 }
