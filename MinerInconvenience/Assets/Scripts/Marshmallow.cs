@@ -8,18 +8,22 @@ public class Marshmallow : MonoBehaviour
     public float jumpCooldown;
     public bool onGround;
     public LayerMask groundLayer;
+    public GameObject weaponCollectible;
+    public Color flashColor;
+    public float flashTimer;
+    public int numFlashes;
     [SerializeField] int health;
     Rigidbody2D body;
     Animator anim;
     float jumpTimer;
-
-    public GameObject weaponCollectible;
+    SpriteRenderer spriteRenderer;
 
     void Start()
     {
         //Cache references to components
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         health = 100;
     }
 
@@ -72,6 +76,9 @@ public class Marshmallow : MonoBehaviour
         // Reduce enemy health
         health -= 25;
 
+        // Flash the sprite
+        StartCoroutine(FlashOnDamage());
+
         // Check to see if the enemy is dead
         if (IsDead()) Dead();
     }
@@ -93,5 +100,20 @@ public class Marshmallow : MonoBehaviour
     {
         Destroy(this.gameObject);
         Instantiate(weaponCollectible, transform.position, Quaternion.identity);
+    }
+
+    /// <summary>
+    /// Flashes the enemy sprite red when they take damage
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator FlashOnDamage()
+    {
+        for (int i = 0; i < numFlashes; i++)
+        {
+            spriteRenderer.color = flashColor;
+            yield return new WaitForSeconds(flashTimer);
+            spriteRenderer.color = Color.white;
+            yield return new WaitForSeconds(flashTimer);
+        }
     }
 }

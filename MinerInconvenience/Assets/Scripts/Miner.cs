@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Miner : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class Miner : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask enemyLayer;
     private MinerHealthManager healthUIManager;
-
     [SerializeField]float speed = 5f;
     [SerializeField] float moveForce = 300f;
     private Vector2 inputVector;
@@ -21,6 +21,7 @@ public class Miner : MonoBehaviour
     private bool movedInAir = false;
     private float lives;
     private const int maxLives = 5;
+    public Text weaponCollectibleTextBox;
 
     // Start is called before the first frame update
     public void Start()
@@ -148,7 +149,7 @@ public class Miner : MonoBehaviour
         {
             Destroy(collision.gameObject);
             weaponPiecesCounter++;
-            Debug.Log(weaponPiecesCounter);
+            weaponCollectibleTextBox.text = weaponPiecesCounter.ToString();
         }
     }
 
