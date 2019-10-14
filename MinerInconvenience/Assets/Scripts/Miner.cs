@@ -9,15 +9,18 @@ public class Miner : MonoBehaviour
     private SpriteRenderer playerSpriteRenderer;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask enemyLayer;
+    private MinerHealthManager healthUIManager;
 
     [SerializeField]float speed = 5f;
     [SerializeField] float moveForce = 300f;
     private Vector2 inputVector;
     private bool didChangeDirection = false;
     private bool isWalking = false;
-    int marshmallowCounter;
+    int weaponPiecesCounter;
     int collectibleCounter;
     private bool movedInAir = false;
+    private float lives;
+    private const int maxLives = 5;
 
     // Start is called before the first frame update
     public void Start()
@@ -25,9 +28,13 @@ public class Miner : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        healthUIManager = GameObject.Find("Health Manager").GetComponent<MinerHealthManager>();
 
-        marshmallowCounter = 0;
+        weaponPiecesCounter = 0;
         collectibleCounter = 0;
+        lives = 3;
+
+        healthUIManager.UpdateLifeDisplay(lives);
     }
 
     // Update is called once per frame
@@ -41,8 +48,6 @@ public class Miner : MonoBehaviour
         {
             Attack();
         }
-
-
 
         FlipSprite();
     }
@@ -139,6 +144,12 @@ public class Miner : MonoBehaviour
             Destroy(collision.gameObject);
             collectibleCounter++;
         }
+        else if(collision.gameObject.tag == "WeaponCollectible")
+        {
+            Destroy(collision.gameObject);
+            weaponPiecesCounter++;
+            Debug.Log(weaponPiecesCounter);
+        }
     }
 
     /// <summary>
@@ -150,9 +161,10 @@ public class Miner : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * rayCastSign, 10f,enemyLayer);
 
-        if(hit.collider!=null)
+        if(hit.collider != null)
         {
             Debug.Log("hit");
+            hit.collider.gameObject.GetComponentInParent<Marshmallow>().TakeDamage();
         }
     }
 
@@ -165,5 +177,41 @@ public class Miner : MonoBehaviour
         else if (inputVector.x < 0) didChangeDirection = true;
 
         playerSpriteRenderer.flipX = didChangeDirection;
+    }
+
+    /// <summary>
+    /// Reduces the player's lives
+    /// </summary>
+    public void TakeDamage(string tag)
+    {
+        // Reduce the player's lives
+        if (tag == "Enemy")
+        {
+            lives -= 0.50f;
+        }
+
+        // Update the UI to display how many lives the player now has
+        healthUIManager.UpdateLifeDisplay(lives);
+
+        // Check to see if the player is dead
+        if (IsDead()) Dead();
+    }
+
+    /// <summary>
+    /// Checks if the player is dead
+    /// </summary>
+    /// <returns>True if the player has no lives remaining, false otherwise</returns>
+    public bool IsDead()
+    {
+        if (lives <= 0) return true;
+        return false;
+    }
+
+    /// <summary>
+    /// Called when player dies
+    /// </summary>
+    public void Dead()
+    {
+
     }
 }

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Collectible
+  - HealthCollectible
+  - Enemy
+  - WeaponCollectible
   layers:
   - Default
   - TransparentFX

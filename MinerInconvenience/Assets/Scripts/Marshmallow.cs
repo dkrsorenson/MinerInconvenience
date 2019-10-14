@@ -13,6 +13,8 @@ public class Marshmallow : MonoBehaviour
     Animator anim;
     float jumpTimer;
 
+    public GameObject weaponCollectible;
+
     void Start()
     {
         //Cache references to components
@@ -60,5 +62,36 @@ public class Marshmallow : MonoBehaviour
         body.AddForce(new Vector2(-transform.localScale.x,5).normalized * jumpForce, ForceMode2D.Impulse);
         //For now, simply switch the scale x
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+    }
+    
+    /// <summary>
+    /// Reduces the enemy's health
+    /// </summary>
+    public void TakeDamage()
+    {
+        // Reduce enemy health
+        health -= 25;
+
+        // Check to see if the enemy is dead
+        if (IsDead()) Dead();
+    }
+
+    /// <summary>
+    /// Checks if the enemy is dead
+    /// </summary>
+    /// <returns>True if the enemy has no remaining health, false otherwise</returns>
+    public bool IsDead()
+    {
+        if (health <= 0) return true;
+        return false;
+    }
+
+    /// <summary>
+    /// Destroys the enemy game object and spawns a weapon collectible in its place
+    /// </summary>
+    public void Dead()
+    {
+        Destroy(this.gameObject);
+        Instantiate(weaponCollectible, transform.position, Quaternion.identity);
     }
 }
