@@ -17,6 +17,7 @@ public class Marshmallow : MonoBehaviour
     Animator anim;
     float jumpTimer;
     SpriteRenderer spriteRenderer;
+    public float knockbackForce;
 
     void Start()
     {
@@ -98,7 +99,7 @@ public class Marshmallow : MonoBehaviour
     /// </summary>
     public void Dead()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
         Instantiate(weaponCollectible, transform.position, Quaternion.identity);
     }
 
@@ -114,6 +115,16 @@ public class Marshmallow : MonoBehaviour
             yield return new WaitForSeconds(flashTimer);
             spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(flashTimer);
+        }
+    }
+
+    //Enemy Attack
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Miner>().StartCoroutine("TakeDamage");
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((transform.position - collision.transform.position).normalized * knockbackForce, ForceMode2D.Impulse);
         }
     }
 }

@@ -23,6 +23,7 @@ public class Miner : MonoBehaviour
     private float lives;
     private const int maxLives = 5;
     public Text weaponCollectibleTextBox;
+    public Color flashColor;
     [SerializeField] Transform canvas;
 
     // Start is called before the first frame update
@@ -199,13 +200,23 @@ public class Miner : MonoBehaviour
     /// <summary>
     /// Reduces the player's lives
     /// </summary>
-    public void TakeDamage(string tag)
+    public IEnumerator TakeDamage()
     {
         // Reduce the player's lives
+        lives -= 0.50f;
+
+        /*
         if (tag == "Enemy")
         {
-            lives -= 0.50f;
+            
         }
+        */
+
+        playerSpriteRenderer.color = flashColor;
+        yield return new WaitForSeconds(0.1f);
+        playerSpriteRenderer.color = Color.white;
+
+        
 
         // Update the UI to display how many lives the player now has
         healthUIManager.UpdateLifeDisplay(lives);
