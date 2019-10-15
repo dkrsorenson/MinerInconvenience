@@ -30,7 +30,7 @@ public class Miner : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        playerSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        playerSpriteRenderer = GameObject.Find("MinerSprite").GetComponent<SpriteRenderer>();
         healthUIManager = GameObject.Find("Health Manager").GetComponent<MinerHealthManager>();
 
         weaponPiecesCounter = 0;
@@ -53,11 +53,6 @@ public class Miner : MonoBehaviour
         }
 
         FlipSprite();
-
-        if(lives <= 0)
-        {
-            SceneManager.LoadScene("GameOver");
-        }
 
         if(rigidBody.velocity.y < -50)
         {
@@ -234,6 +229,6 @@ public class Miner : MonoBehaviour
     /// </summary>
     public void Dead()
     {
-
+        SceneManager.LoadScene("GameOver");
     }
 }
