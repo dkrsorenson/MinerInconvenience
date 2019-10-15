@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Miner : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Miner : MonoBehaviour
     private float lives;
     private const int maxLives = 5;
     public Text weaponCollectibleTextBox;
+    [SerializeField] Transform canvas;
 
     // Start is called before the first frame update
     public void Start()
@@ -51,6 +53,25 @@ public class Miner : MonoBehaviour
         }
 
         FlipSprite();
+
+        if(lives <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
+        if(rigidBody.velocity.y < -50)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (canvas.gameObject.activeInHierarchy == false)
+            {
+                canvas.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        }
     }
 
     public void FixedUpdate()

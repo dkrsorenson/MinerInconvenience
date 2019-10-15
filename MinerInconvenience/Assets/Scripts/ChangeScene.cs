@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    [SerializeField] Transform canvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +24,38 @@ public class ChangeScene : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("Start");
+        Time.timeScale = 1f;
+    }
+
     public void CloseApp()
     {
         Application.Quit();
+    }
+    
+    public void ResumeGame()
+    {
+        GameObject.Find("PauseMenu").SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void GoToInstructions()
+    {
+        gameObject.SetActive(false);
+        if (canvas.gameObject.activeInHierarchy == false)
+        {
+            canvas.gameObject.SetActive(true);
+        }
+    }
+
+    public void BackToPause()
+    {
+        gameObject.SetActive(false);
+        if (canvas.gameObject.activeInHierarchy == false)
+        {
+            canvas.gameObject.SetActive(true);
+        }
     }
 }
