@@ -160,7 +160,10 @@ public class Miner : MonoBehaviour
         if (collision.gameObject.tag == "HealthCollectible")
         {
             Destroy(collision.gameObject);
-            lives += 0.5f;
+            if(lives<=maxLives)
+            {
+                lives += 0.5f;
+            }
             collectibleCounter++;
         }
         else if(collision.gameObject.tag == "WeaponCollectible")
