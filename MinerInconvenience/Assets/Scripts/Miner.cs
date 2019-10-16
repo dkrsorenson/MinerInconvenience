@@ -177,9 +177,9 @@ public class Miner : MonoBehaviour
     {
         float rayCastSign = playerSpriteRenderer.flipX ? -1.0f : 1.0f;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * rayCastSign, 10f,enemyLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * rayCastSign, 1.5f,enemyLayer);
 
-        if(hit.collider != null)
+        if (hit.collider != null)
         {
             Debug.Log("hit");
             hit.collider.gameObject.GetComponentInParent<Marshmallow>().TakeDamage();
