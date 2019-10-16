@@ -163,6 +163,7 @@ public class Miner : MonoBehaviour
             if(lives<=maxLives)
             {
                 lives += 0.5f;
+                healthUIManager.UpdateLifeDisplay(lives);
             }
             collectibleCounter++;
         }

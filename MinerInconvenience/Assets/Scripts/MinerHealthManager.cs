@@ -9,7 +9,7 @@ public class MinerHealthManager : MonoBehaviour
     public Image healthImagePrefab;
     private const int maxLives = 5;
 
-    private Vector2 origin = new Vector2(-500, 165);
+    private Vector2 origin = new Vector2(25, -25);
     private int offsetX = 35;
 
     // Start is called before the first frame update
