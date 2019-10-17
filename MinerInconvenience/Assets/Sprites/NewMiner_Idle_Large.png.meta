@@ -3,11 +3,11 @@ guid: 572fa2254b4d6c342b6f05cb712c5abb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1395898140761052567
-    second: NewMiner_Idle_Larger_0
+      213: -597101201937650183
+    second: NewMiner_Idle_Large_0
   - first:
-      213: -1189584347443532255
-    second: NewMiner_Idle_Larger_1
+      213: 3886254094926322908
+    second: NewMiner_Idle_Large_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -92,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NewMiner_Idle_Larger_0
+      name: NewMiner_Idle_Large_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 11
-        width: 98
-        height: 229
+        x: 28
+        y: 12
+        width: 96
+        height: 228
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -106,20 +106,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9324855f2108fe84db90667c2b85d61d
-      internalID: 1395898140761052567
+      spriteID: ffa3e690089f0974981bf9ffdbb761ff
+      internalID: -597101201937650183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewMiner_Idle_Larger_1
+      name: NewMiner_Idle_Large_1
       rect:
         serializedVersion: 2
-        x: 171
-        y: 11
-        width: 98
-        height: 226
+        x: 172
+        y: 12
+        width: 96
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9526cd0be857c104dad90261937f89d1
-      internalID: -1189584347443532255
+      spriteID: 5473cc00e4707bb4a8d201d138158205
+      internalID: 3886254094926322908
       vertices: []
       indices: 
       edges: []
