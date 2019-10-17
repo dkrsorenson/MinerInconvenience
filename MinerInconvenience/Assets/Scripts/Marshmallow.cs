@@ -8,6 +8,10 @@ public class Marshmallow : MonoBehaviour
     public float jumpCooldown;
     public bool onGround;
     public LayerMask groundLayer;
+    [SerializeField] LayerMask minerLayer;
+    [SerializeField]private float directionToMinerSign;
+    private bool minerFound;
+    private Vector3 minerPosition;
     public GameObject weaponCollectible;
     public Color flashColor;
     public float flashTimer;
@@ -30,7 +34,7 @@ public class Marshmallow : MonoBehaviour
 
     private void Update()
     {
-
+        LookForMiner();
     }
 
     private void FixedUpdate()
@@ -64,9 +68,23 @@ public class Marshmallow : MonoBehaviour
     public void Jump()
     {
         //Add the force in the correct direction to the object
-        body.AddForce(new Vector2(-transform.localScale.x,5).normalized * jumpForce, ForceMode2D.Impulse);
-        //For now, simply switch the scale x
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if (minerFound)
+        {
+            Vector2 direction = (minerPosition - transform.position).normalized;
+            directionToMinerSign = Mathf.Sign(Vector2.Dot(transform.right,direction));
+
+            //adding a force in the direction of the miner
+            body.AddForce(new Vector2(directionToMinerSign*Mathf.Abs(transform.localScale.x), 5).normalized * jumpForce, ForceMode2D.Impulse);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * directionToMinerSign, transform.localScale.y, transform.localScale.z);
+            
+        }
+
+        else
+        {
+            body.AddForce(new Vector2(-transform.localScale.x, 5).normalized * jumpForce, ForceMode2D.Impulse);
+            //For now, simply switch the scale x
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
     }
     
     /// <summary>
@@ -83,6 +101,35 @@ public class Marshmallow : MonoBehaviour
         // Check to see if the enemy is dead
         if (IsDead()) Dead();
     }
+
+    void LookForMiner()
+    {
+        //raycasting both sides to look for miner
+        RaycastHit2D hitForward;
+        RaycastHit2D hitBackward;
+
+        //cast a ray forward and backward
+        hitForward = Physics2D.CircleCast(transform.position, 0.1f, transform.right, 10f, minerLayer);
+        hitBackward = Physics2D.CircleCast(transform.position, 0.1f, -transform.right, 10f, minerLayer);
+
+        if(hitForward.collider!=null)
+        {
+            minerFound = true;
+            minerPosition = hitForward.collider.gameObject.transform.position;
+        }
+
+        else if(hitBackward.collider!=null)
+        {
+            minerPosition = hitBackward.collider.gameObject.transform.position;
+            minerFound = true;
+        }
+
+        else
+        {
+            minerFound = false;
+        }
+    }
+
 
     /// <summary>
     /// Checks if the enemy is dead

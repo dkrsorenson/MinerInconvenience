@@ -11,6 +11,7 @@ public class Miner : MonoBehaviour
     private SpriteRenderer playerSpriteRenderer;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private LayerMask minerLayer;
     private MinerHealthManager healthUIManager;
     [SerializeField]float speed = 5f;
     [SerializeField] float moveForce = 300f;
@@ -25,6 +26,7 @@ public class Miner : MonoBehaviour
     public Text weaponCollectibleTextBox;
     public Color flashColor;
     [SerializeField] Transform canvas;
+    private bool minerFound;
 
     // Start is called before the first frame update
     public void Start()
