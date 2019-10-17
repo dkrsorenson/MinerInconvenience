@@ -31,7 +31,7 @@ public class Miner : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        playerSpriteRenderer = GameObject.Find("MinerSprite").GetComponent<SpriteRenderer>();
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
         healthUIManager = GameObject.Find("Health Manager").GetComponent<MinerHealthManager>();
 
         weaponPiecesCounter = 0;
@@ -115,6 +115,9 @@ public class Miner : MonoBehaviour
         {
             rigidBody.velocity = new Vector2(Mathf.Sign(rigidBody.velocity.x) * speed, rigidBody.velocity.y);
         }
+
+        // set animation speed
+        animator.SetFloat("speed", Mathf.Abs(inputVector.x));
     }
 
     /// <summary>
@@ -186,7 +189,6 @@ public class Miner : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log("hit");
             hit.collider.gameObject.GetComponentInParent<Marshmallow>().TakeDamage();
         }
     }
