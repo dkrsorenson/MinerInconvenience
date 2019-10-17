@@ -157,6 +157,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  minerLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  directionToMinerSign: 0
   weaponCollectible: {fileID: 1831989959327245229, guid: a815a3ad070b75b4e8f76565b51ecd55,
     type: 3}
   flashColor: {r: 0.8396226, g: 0, b: 0, a: 1}
@@ -480,7 +484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00079345703, y: -0.0028686523}
+  m_AnchoredPosition: {x: 0.0007324219, y: -0.0028686523}
   m_SizeDelta: {x: -0.8000488, y: -0.51000977}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &365241908
@@ -493,7 +497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365241909}
   - component: {fileID: 365241911}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MinerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -949,6 +953,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  minerLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  directionToMinerSign: 0
   weaponCollectible: {fileID: 1831989959327245229, guid: a815a3ad070b75b4e8f76565b51ecd55,
     type: 3}
   flashColor: {r: 0.8396226, g: 0, b: 0, a: 1}
@@ -2685,7 +2693,7 @@ GameObject:
   - component: {fileID: 1347760616}
   - component: {fileID: 1347760617}
   - component: {fileID: 1347760618}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Miner
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2710,6 +2718,9 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
+  minerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 4
   moveForce: 200
   weaponCollectibleTextBox: {fileID: 324941917}
@@ -2964,6 +2975,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  minerLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  directionToMinerSign: 0
   weaponCollectible: {fileID: 1831989959327245229, guid: a815a3ad070b75b4e8f76565b51ecd55,
     type: 3}
   flashColor: {r: 0.8396226, g: 0, b: 0, a: 1}
