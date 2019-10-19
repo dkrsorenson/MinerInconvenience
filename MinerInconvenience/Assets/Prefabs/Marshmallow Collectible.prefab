@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1831989959327245227}
   - component: {fileID: 1831989959327245226}
   - component: {fileID: 3226332491183032412}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Marshmallow Collectible
   m_TagString: WeaponCollectible
   m_Icon: {fileID: 0}
