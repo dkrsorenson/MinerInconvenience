@@ -27,7 +27,7 @@ public class Marshmallow : MonoBehaviour
     {
         //Cache references to components
         body = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         health = 100;
     }
@@ -47,6 +47,7 @@ public class Marshmallow : MonoBehaviour
                 //trigger animator to jump
                 anim.SetTrigger("Jump");
                 jumpTimer = 0f;
+                Jump();
             }
             jumpTimer += Time.deltaTime;
         }
@@ -56,7 +57,7 @@ public class Marshmallow : MonoBehaviour
     bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.CircleCast(transform.position,
-            0.1f, Vector2.down, 0.7f, groundLayer);
+            0.2f, Vector2.down, 0.7f, groundLayer);
         if (hit.collider != null)
         {
             return true;
@@ -78,7 +79,6 @@ public class Marshmallow : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * directionToMinerSign, transform.localScale.y, transform.localScale.z);
             
         }
-
         else
         {
             body.AddForce(new Vector2(-transform.localScale.x, 5).normalized * jumpForce, ForceMode2D.Impulse);

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 0becfa658e2e4854c91043c8eae64846
+guid: 7be1508b31fb0544697288cc87d14168
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7760195958595214270
-    second: NewMiner_WalkCycle_Large_0
+      213: -6438088047562323285
+    second: Marshmello_Jump_Large_0
   - first:
-      213: -5843030460326191560
-    second: NewMiner_WalkCycle_Large_1
+      213: 7030613946657104436
+    second: Marshmello_Jump_Large_1
   - first:
-      213: -3371920004278566632
-    second: NewMiner_WalkCycle_Large_2
+      213: 8023148431434085989
+    second: Marshmello_Jump_Large_2
   - first:
-      213: 6184900667531821892
-    second: NewMiner_WalkCycle_Large_3
+      213: -2173388491579230876
+    second: Marshmello_Jump_Large_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -98,34 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NewMiner_WalkCycle_Large_0
+      name: Marshmello_Jump_Large_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 16
-        width: 128
-        height: 212
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fdf6ed59e02ccd4f9d68e1bc30d7e4c
-      internalID: -7760195958595214270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewMiner_WalkCycle_Large_1
-      rect:
-        serializedVersion: 2
-        x: 172
+        x: 33
         y: 12
-        width: 96
-        height: 228
+        width: 99
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,41 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 484773020b2a56a43ab8d5a2744e34f7
-      internalID: -5843030460326191560
+      spriteID: e62476bab56c9db4b81b1c9faa9f5725
+      internalID: -6438088047562323285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewMiner_WalkCycle_Large_2
+      name: Marshmello_Jump_Large_1
       rect:
         serializedVersion: 2
-        x: 296
-        y: 16
-        width: 116
-        height: 212
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d70c3acf25e7c241b478ea4c4325ce9
-      internalID: -3371920004278566632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NewMiner_WalkCycle_Large_3
-      rect:
-        serializedVersion: 2
-        x: 460
+        x: 189
         y: 12
-        width: 96
-        height: 228
+        width: 117
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,8 +133,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8956c4fb9897669429d00ccbaadfe078
-      internalID: 6184900667531821892
+      spriteID: a9ce201d6101b14439cc803729b960ec
+      internalID: 7030613946657104436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marshmello_Jump_Large_2
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 12
+        width: 99
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cddb4ff679603964e9850c41cc649a0f
+      internalID: 8023148431434085989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marshmello_Jump_Large_3
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 30
+        width: 99
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f9f10ba704ac8e4ba6230f9655842d1
+      internalID: -2173388491579230876
       vertices: []
       indices: 
       edges: []
