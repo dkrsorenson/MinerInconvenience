@@ -29,6 +29,11 @@ public class ChangeScene : MonoBehaviour
         SceneManager.LoadScene("GameWon");
     }
 
+    public void ToBossScene()
+    {
+        SceneManager.LoadScene("BossScene");
+    }
+
     public void ToMainMenu()
     {
         SceneManager.LoadScene("Start");

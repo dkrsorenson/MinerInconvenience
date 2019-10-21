@@ -33,14 +33,23 @@ public class Miner : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+
+        weaponPiecesCounter = 0;
+        collectibleCounter = 0;
+        lives = 3;
+
+        if (SceneManager.GetActiveScene().name == "BossScene")
+        {
+            lives = PlayerPrefs.GetFloat("playerHealth", 3);
+            weaponPiecesCounter = PlayerPrefs.GetInt("marshmallowCount", 0);
+            upgraded = PlayerPrefs.GetInt("isUpgraded", 0) == 1 ? true : false;
+        }
+
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         healthUIManager = GameObject.Find("Health Manager").GetComponent<MinerHealthManager>();
 
-        weaponPiecesCounter = 0;
-        collectibleCounter = 0;
-        lives = 3;
         giveDamageAmount = 25;
         upgraded = false;
 
@@ -189,7 +198,10 @@ public class Miner : MonoBehaviour
         }
         else if(collision.gameObject.tag == "EndSceneTrigger")
         {
-            SceneManager.LoadScene("GameWon");
+            PlayerPrefs.SetFloat("playerHealth", lives);
+            PlayerPrefs.SetInt("marshmallowCount", weaponPiecesCounter);
+            PlayerPrefs.SetInt("isUpgraded", upgraded ? 1 : 0);
+            SceneManager.LoadScene("BossScene");
         }
     }
 
@@ -255,6 +267,21 @@ public class Miner : MonoBehaviour
     {
         if (lives <= 0) return true;
         return false;
+    }
+
+    public float GetHealth()
+    {
+        return lives;
+    }
+
+    public int GetMarshmallowCount()
+    {
+        return weaponPiecesCounter;
+    }
+
+    public bool HasPickaxe()
+    {
+        return upgraded;
     }
 
     /// <summary>
