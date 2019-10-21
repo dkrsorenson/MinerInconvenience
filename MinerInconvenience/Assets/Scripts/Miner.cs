@@ -178,6 +178,10 @@ public class Miner : MonoBehaviour
             weaponPiecesCounter++;
             weaponCollectibleTextBox.text = weaponPiecesCounter.ToString();
         }
+        else if(collision.gameObject.tag == "EndSceneTrigger")
+        {
+            SceneManager.LoadScene("GameWon");
+        }
     }
 
     /// <summary>
