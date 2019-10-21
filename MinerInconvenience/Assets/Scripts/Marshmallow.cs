@@ -88,12 +88,12 @@ public class Marshmallow : MonoBehaviour
     }
     
     /// <summary>
-    /// Reduces the enemy's health
+    /// Reduces the enemy's health by damage amount
     /// </summary>
-    public void TakeDamage()
+    public void TakeDamage(int amount)
     {
         // Reduce enemy health
-        health -= 25;
+        health -= amount;
 
         // Flash the sprite
         StartCoroutine(FlashOnDamage());
