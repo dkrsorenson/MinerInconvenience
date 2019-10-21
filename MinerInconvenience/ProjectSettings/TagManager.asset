@@ -9,6 +9,7 @@ TagManager:
   - HealthCollectible
   - Enemy
   - WeaponCollectible
+  - EndSceneTrigger
   layers:
   - Default
   - TransparentFX
