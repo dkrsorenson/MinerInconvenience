@@ -27,6 +27,8 @@ public class Miner : MonoBehaviour
     public Color flashColor;
     [SerializeField] Transform canvas;
     private bool minerFound;
+    private int giveDamageAmount;
+    private bool upgraded;
 
     // Start is called before the first frame update
     public void Start()
@@ -39,6 +41,8 @@ public class Miner : MonoBehaviour
         weaponPiecesCounter = 0;
         collectibleCounter = 0;
         lives = 3;
+        giveDamageAmount = 25;
+        upgraded = false;
 
         healthUIManager.UpdateLifeDisplay(lives);
     }
@@ -69,6 +73,11 @@ public class Miner : MonoBehaviour
                 canvas.gameObject.SetActive(true);
                 Time.timeScale = 0f;
             }
+        }
+        if(!upgraded && weaponPiecesCounter >= 7)
+        {
+            giveDamageAmount = 50;
+            upgraded = true;
         }
     }
 
@@ -195,7 +204,7 @@ public class Miner : MonoBehaviour
 
         if (hit.collider != null)
         {
-            hit.collider.gameObject.GetComponentInParent<Marshmallow>().TakeDamage();
+            hit.collider.gameObject.GetComponentInParent<Marshmallow>().TakeDamage(giveDamageAmount);
         }
     }
 
