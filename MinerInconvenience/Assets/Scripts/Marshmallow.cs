@@ -35,6 +35,11 @@ public class Marshmallow : MonoBehaviour
     private void Update()
     {
         LookForMiner();
+
+        if (body.velocity.y < -50)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -57,7 +62,7 @@ public class Marshmallow : MonoBehaviour
     bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.CircleCast(transform.position,
-            0.1f, Vector2.down, 0.7f, groundLayer);
+            0.2f, Vector2.down, 0.7f, groundLayer);
         if (hit.collider != null)
         {
             return true;
