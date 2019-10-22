@@ -1,0 +1,445 @@
+fileFormatVersion: 2
+guid: 9b31d37ec9a43b44caed53b90563e16d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6399641740303186159
+    second: NewMiner_Attack_0
+  - first:
+      213: -2367801268339947627
+    second: NewMiner_Attack_1
+  - first:
+      213: -6931664540428303045
+    second: NewMiner_Attack_2
+  - first:
+      213: 9221455490048458992
+    second: NewMiner_Attack_3
+  - first:
+      213: -8061249672903466622
+    second: NewMiner_Attack_4
+  - first:
+      213: 5604410536224405214
+    second: NewMiner_Attack_5
+  - first:
+      213: -5372416482508806491
+    second: NewMiner_Attack_6
+  - first:
+      213: -5966357493844622729
+    second: NewMiner_Attack_7
+  - first:
+      213: -8053542407554953782
+    second: NewMiner_Attack_8
+  - first:
+      213: 2797362809264933474
+    second: NewMiner_Attack_9
+  - first:
+      213: 4371696638472463574
+    second: NewMiner_Attack_10
+  - first:
+      213: -9086879204060812840
+    second: NewMiner_Attack_11
+  - first:
+      213: 6510799256817364206
+    second: NewMiner_Attack_12
+  - first:
+      213: -4623756899967897441
+    second: NewMiner_Attack_13
+  - first:
+      213: -2821515051063225332
+    second: NewMiner_Attack_14
+  - first:
+      213: -7676287452709428829
+    second: NewMiner_Attack_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NewMiner_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 228
+        width: 104
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca70b7700357858408d9a2240b2d286a
+      internalID: 6399641740303186159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 232
+        width: 132
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa31fdc6296679d40a08ccb609cd43fc
+      internalID: -2367801268339947627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 232
+        width: 132
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9beb8ff2ad72d4c418919d2e19d3e150
+      internalID: -6931664540428303045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 232
+        width: 156
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39cd195e5579a16438126171fd9fb968
+      internalID: 9221455490048458992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 232
+        width: 172
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7412248fb67839642926f64d095cf8bc
+      internalID: -8061249672903466622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 232
+        width: 172
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575cd0c599565304e8172a4ac44bce4e
+      internalID: 5604410536224405214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 232
+        width: 184
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef3bc38949f952b4999eadaaee2c44cc
+      internalID: -5372416482508806491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 184
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b43bf7110386a154eae9458aa9218684
+      internalID: -5966357493844622729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 4
+        width: 184
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0354ec75a22b33e48b1e5b18fa2550cd
+      internalID: -8053542407554953782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 4
+        width: 182
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f1cec9124f82bc489bb20cffd744829
+      internalID: 2797362809264933474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 2
+        width: 181
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b147b11ffebc0343942e8b7c31468ef
+      internalID: -9086879204060812840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 4
+        width: 172
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a0e57a1620335418ed91538042c8f9
+      internalID: -4623756899967897441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 4
+        width: 132
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46cdd716fcd5ecd4fb8414a2a3a2faf5
+      internalID: -2821515051063225332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewMiner_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 0
+        width: 104
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dba3e3f4210741d44ba33ca252db15c1
+      internalID: -7676287452709428829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

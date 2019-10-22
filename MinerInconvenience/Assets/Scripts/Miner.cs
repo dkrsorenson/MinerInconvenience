@@ -65,7 +65,12 @@ public class Miner : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            Attack();
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("MinerAttack"))
+            {
+                Attack();
+                // set is attacking bool
+                animator.SetTrigger("attack");
+            }
         }
 
         FlipSprite();
@@ -196,12 +201,16 @@ public class Miner : MonoBehaviour
             weaponPiecesCounter++;
             weaponCollectibleTextBox.text = weaponPiecesCounter.ToString();
         }
-        else if(collision.gameObject.tag == "EndSceneTrigger")
+        else if (collision.gameObject.tag == "BossSceneTrigger")
         {
             PlayerPrefs.SetFloat("playerHealth", lives);
             PlayerPrefs.SetInt("marshmallowCount", weaponPiecesCounter);
             PlayerPrefs.SetInt("isUpgraded", upgraded ? 1 : 0);
             SceneManager.LoadScene("BossScene");
+        }
+        else if(collision.gameObject.tag == "EndSceneTrigger")
+        {
+            SceneManager.LoadScene("GameWon");
         }
     }
 
