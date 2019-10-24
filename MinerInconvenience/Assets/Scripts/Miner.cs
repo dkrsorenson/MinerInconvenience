@@ -203,10 +203,11 @@ public class Miner : MonoBehaviour
         }
         else if (collision.gameObject.tag == "BossSceneTrigger")
         {
-            PlayerPrefs.SetFloat("playerHealth", lives);
-            PlayerPrefs.SetInt("marshmallowCount", weaponPiecesCounter);
-            PlayerPrefs.SetInt("isUpgraded", upgraded ? 1 : 0);
-            SceneManager.LoadScene("BossScene");
+            //PlayerPrefs.SetFloat("playerHealth", lives);
+            //PlayerPrefs.SetInt("marshmallowCount", weaponPiecesCounter);
+            //PlayerPrefs.SetInt("isUpgraded", upgraded ? 1 : 0);
+            //SceneManager.LoadScene("BossScene");
+            SceneManager.LoadScene("GameWon");
         }
         else if(collision.gameObject.tag == "EndSceneTrigger")
         {

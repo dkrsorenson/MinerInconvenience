@@ -8866,12 +8866,12 @@ PrefabInstance:
     - target: {fileID: 850977653841380582, guid: ad5c06a5a5e72a44b84643fb1191490a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51.86
+      value: 153.59
       objectReference: {fileID: 0}
     - target: {fileID: 850977653841380582, guid: ad5c06a5a5e72a44b84643fb1191490a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.61
+      value: -0.72
       objectReference: {fileID: 0}
     - target: {fileID: 850977653841380582, guid: ad5c06a5a5e72a44b84643fb1191490a,
         type: 3}
@@ -8928,6 +8928,16 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1503059165}
+    - target: {fileID: 850977653841380583, guid: ad5c06a5a5e72a44b84643fb1191490a,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850977653841380585, guid: ad5c06a5a5e72a44b84643fb1191490a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.96
+      objectReference: {fileID: 0}
     - target: {fileID: 850977653841380584, guid: ad5c06a5a5e72a44b84643fb1191490a,
         type: 3}
       propertyPath: m_Offset.y
@@ -8952,16 +8962,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 850977653841380583, guid: ad5c06a5a5e72a44b84643fb1191490a,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 850977653841380585, guid: ad5c06a5a5e72a44b84643fb1191490a,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.96
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad5c06a5a5e72a44b84643fb1191490a, type: 3}
