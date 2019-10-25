@@ -69,11 +69,10 @@ public class JellyFier : MonoBehaviour
 
             Vector3 curOffset = GetComponent<BoxCollider>().center;
             curOffset.y = -0.1f;
-            //GetComponent<BoxCollider>().center=curOffset;
 
             for (int i = 0; i < collisionPoints.Length; i++)
             {
-                Vector3 inputPoint = collisionPoints[i].point + (collisionPoints[i].point * .05f);
+                Vector3 inputPoint = collisionPoints[i].point;
                 ApplyPressureToPoint(inputPoint, fallForce);
             }
         }
@@ -87,7 +86,7 @@ public class JellyFier : MonoBehaviour
 
         Vector3 curOffset = GetComponent<BoxCollider>().center;
         curOffset.y = 0f;
-        GetComponent<BoxCollider>().center = curOffset;
+        //GetComponent<BoxCollider>().center = curOffset;
     }
 
     public void ApplyPressureToPoint(Vector3 point, float pressure)
