@@ -179,4 +179,24 @@ public class Marshmallow : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce((transform.position - collision.transform.position).normalized * knockbackForce, ForceMode2D.Impulse);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ChocolatePuddle")
+        {
+            // Cut speed in half
+            jumpForce = (jumpForce / 2);
+
+            // Splash particles
+            collision.gameObject.GetComponent<Puddle>().Splash(this.transform);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ChocolatePuddle")
+        {
+            // Reset speed
+            jumpForce = 8.0f;
+        }
+    }
 }

@@ -15,6 +15,7 @@ public class Miner : MonoBehaviour
     private MinerHealthManager healthUIManager;
     [SerializeField]float speed = 5f;
     [SerializeField] float moveForce = 300f;
+    [SerializeField] float jumpForce = 11f;
     private Vector2 inputVector;
     private bool didChangeDirection = false;
     private bool isWalking = false;
@@ -33,7 +34,6 @@ public class Miner : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-
         weaponPiecesCounter = 0;
         collectibleCounter = 0;
         lives = 3;
@@ -102,7 +102,7 @@ public class Miner : MonoBehaviour
         //if it is grounded then apply a jump force
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            rigidBody.AddForce(Vector2.up * 11, ForceMode2D.Impulse);
+            rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
         Walk();
@@ -213,6 +213,35 @@ public class Miner : MonoBehaviour
         {
             SceneManager.LoadScene("GameWon");
         }
+        else if(collision.gameObject.tag == "ChocolatePuddle")
+        {
+            // Cut players speed in half
+            speed = (speed / 2);
+
+            // Cut player jump in half
+            jumpForce = 7.5f;
+
+            // Play splash droplets
+            collision.GetComponent<Puddle>().Splash(this.transform);
+
+            animator.SetFloat("animationSpeed", Mathf.Abs(0.5f));
+
+            //animator.speed = 0.5f;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ChocolatePuddle")
+        {
+            // Reset speed
+            speed = 5.0f;
+
+            // Reset jump
+            jumpForce = 11f;
+
+            animator.SetFloat("animationSpeed", Mathf.Abs(1.0f));
+        }
     }
 
     /// <summary>
@@ -222,7 +251,7 @@ public class Miner : MonoBehaviour
     {
         float rayCastSign = playerSpriteRenderer.flipX ? -1.0f : 1.0f;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * rayCastSign, 1.5f,enemyLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * rayCastSign, 2.0f, enemyLayer);
 
         if (hit.collider != null)
         {
