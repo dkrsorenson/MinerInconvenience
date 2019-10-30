@@ -6,27 +6,23 @@ using UnityEngine;
 
 public class Puddle : MonoBehaviour
 {
-    ParticleSystem particles;
     public GameObject chocolateDroplet;
+    public GameObject chocolateSplashPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        particles = GetComponentInChildren<ParticleSystem>();
-    }
-    public void Update()
-    {
-   
     }
 
     public void PlaySplashParticles(Transform spawnPoint)
     {
+        var splash = Instantiate(chocolateSplashPrefab);
 
         // move the particles to the correct position
-        particles.transform.position = new Vector3(spawnPoint.position.x, (spawnPoint.position.y + 0.4f), 0f);
+        splash.GetComponent<ParticleSystem>().transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, 0f);
 
         // play the splash particles
-        particles.Play();
+        splash.GetComponent<ParticleSystem>().Play();
     }
 
     public void Splash(Transform spawnPoint)
@@ -40,7 +36,7 @@ public class Puddle : MonoBehaviour
             var randomY = Random.Range(-1.0f, 1.0f);
             var direction = new Vector2(randomX, randomY).normalized;
             var xForce = (Vector2.right * direction.x).x * 5.0f;
-            var yForce = (Vector2.up * direction.y).y * 3.0f;
+            var yForce = (Vector2.up * direction.y).y * 2.0f;
             droplet.GetComponent<Rigidbody2D>().AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse);
 
 

@@ -188,7 +188,7 @@ public class Marshmallow : MonoBehaviour
             jumpForce = (jumpForce / 2);
 
             // Splash particles
-            collision.gameObject.GetComponent<Puddle>().Splash(this.transform);
+            collision.gameObject.GetComponent<Puddle>().PlaySplashParticles(this.transform);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

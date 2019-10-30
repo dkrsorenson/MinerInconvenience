@@ -54,6 +54,9 @@ public class Miner : MonoBehaviour
         upgraded = false;
 
         healthUIManager.UpdateLifeDisplay(lives);
+
+        animator.SetFloat("animationSpeed", Mathf.Abs(1.0f));
+
     }
 
     // Update is called once per frame
@@ -222,7 +225,8 @@ public class Miner : MonoBehaviour
             jumpForce = 7.5f;
 
             // Play splash droplets
-            collision.GetComponent<Puddle>().Splash(this.transform);
+            //collision.GetComponent<Puddle>().Splash(this.transform);
+            collision.GetComponent<Puddle>().PlaySplashParticles(this.transform);
 
             animator.SetFloat("animationSpeed", Mathf.Abs(0.5f));
 

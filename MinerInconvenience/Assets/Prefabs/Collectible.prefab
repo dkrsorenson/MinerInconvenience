@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6888397015653662467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.26, z: 0}
-  m_LocalScale: {x: 1.1813524, y: 1.1813524, z: 1.1813524}
+  m_LocalScale: {x: 1, y: 1, z: 1.1813524}
   m_Children:
   - {fileID: 6888397015836221138}
   m_Father: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6888397015836221138}
   - component: {fileID: 6888397015836221139}
   m_Layer: 9
-  m_Name: ship
+  m_Name: Chocolate
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ Transform:
   m_GameObject: {fileID: 6888397015836221137}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.00000023842, z: 0}
-  m_LocalScale: {x: 0.20152614, y: 0.20152614, z: 0.20152614}
+  m_LocalScale: {x: 2, y: 2, z: 0.20152614}
   m_Children: []
   m_Father: {fileID: 6888397015653662477}
   m_RootOrder: 0
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9174dfcaa6ba80b4594a453e6bb25155, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7c3bd7b819937b4abf952aaed98b8d1, type: 3}
   m_Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
