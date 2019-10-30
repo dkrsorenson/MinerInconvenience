@@ -10761,7 +10761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'slows you down
+  m_text: 'Slows you down
 
 '
   m_isRightToLeft: 0
@@ -10959,7 +10959,7 @@ PrefabInstance:
     - target: {fileID: 1293932885406476109, guid: d47a057b35450c44f8e03c67590d2b8c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.527
+      value: 10.52
       objectReference: {fileID: 0}
     - target: {fileID: 1293932885406476109, guid: d47a057b35450c44f8e03c67590d2b8c,
         type: 3}
@@ -11014,7 +11014,7 @@ PrefabInstance:
     - target: {fileID: 1293932885406476107, guid: d47a057b35450c44f8e03c67590d2b8c,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.3681326
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 1293932885406476107, guid: d47a057b35450c44f8e03c67590d2b8c,
         type: 3}
@@ -11044,7 +11044,7 @@ PrefabInstance:
     - target: {fileID: 1293932885406476108, guid: d47a057b35450c44f8e03c67590d2b8c,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1.3681326
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 1293932885406476108, guid: d47a057b35450c44f8e03c67590d2b8c,
         type: 3}
@@ -11064,7 +11064,7 @@ PrefabInstance:
     - target: {fileID: 1293932885406476108, guid: d47a057b35450c44f8e03c67590d2b8c,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.3861659
+      value: 1.38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d47a057b35450c44f8e03c67590d2b8c, type: 3}
@@ -12092,6 +12092,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2125660757}
     m_Modifications:
+    - target: {fileID: 380591466876967813, guid: 040eb293c2cc99a4e8eec48ba7dc0cc7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3526990646481282655, guid: 040eb293c2cc99a4e8eec48ba7dc0cc7,
         type: 3}
       propertyPath: m_Name
@@ -12327,11 +12332,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -115
-      objectReference: {fileID: 0}
-    - target: {fileID: 380591466876967813, guid: 040eb293c2cc99a4e8eec48ba7dc0cc7,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5332791537393751113, guid: 040eb293c2cc99a4e8eec48ba7dc0cc7,
         type: 3}
