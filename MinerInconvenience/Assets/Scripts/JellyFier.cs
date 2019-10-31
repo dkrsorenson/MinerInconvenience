@@ -10,6 +10,7 @@ public class JellyFier : MonoBehaviour
 
     private MeshFilter meshFilter;
     private Mesh mesh;
+    private Renderer renderer;
 
     JellyVertex[] jellyVertices;
     Vector3[] currentMeshVertices;
@@ -19,6 +20,7 @@ public class JellyFier : MonoBehaviour
     {
         meshFilter = GetComponent<MeshFilter>();
         mesh = meshFilter.mesh;
+        renderer = GetComponent<Renderer>();
 
         GetVertices();
     }
@@ -38,7 +40,10 @@ public class JellyFier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateVertices();
+        if (renderer.isVisible)
+        {
+            UpdateVertices();
+        }
     }
 
     void UpdateVertices()
